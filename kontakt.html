@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+  <title>Podstawy programowania - zadanie L2_A</title>
+
+  <meta name="author" content="Mateusz Krzeszowski (7863)">
+  <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+  
+  <style>
+    .content {
+      max-width: 280px;
+      margin: auto;
+    }
+    fieldset {
+      background-color: #eeeeee;
+    }
+  </style>
+
+  <script src="jquery-3.6.3.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#language").on('change', function(){
+        if($(this).val()=="Inny")
+          $("#Inny").show();
+        else 
+          $("#Inny").hide();
+      })
+    })
+  </script>
+  <script>
+    $(document).ready(function(){
+      $("#browser").on('change', function(){
+        if($(this).val()=="Inna")
+          $("#Inna").show();
+        else 
+          $("#Inna").hide();
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <div class="content">
+    <fieldset>
+      <!--
+      Polecenie przesłania zawartości wypełnionego formularza na swój e-mail zinterpretowałem jako załadowanie danych z formularza
+      do klienta pocztowego i przesłanie ich dalej (docelowo) z poziomu owego klienta (i własnego adresu e-mail). Natomiast jeśli to
+      formularz ma mieć funkcjonalność wysłania danych bezpośrednio na zadany adres e-mail (z pominięciem klienta pocztowego), to
+      najmniej inwazyjnym rozwiązaniem (bez konieczności implementacji i stosowania kodu zaplecza lub konfiguracji SMTP) będzie
+      połączenie formularza z punktem końcowym (np. https://formsubmit.co/). W takim wariancie atrybut akcji formularza należy zmienić
+      z "mailto:mateusz.krzeszowski@europejskauczelnia.edu.pl…" na "https://formsubmit.co/mateusz.krzeszowski@europejskauczelnia.edu.pl"
+      (linia 55) lub uzyskać losowy ciąg znaków, który zastąpi adres e-mail i zabezpieczy go przed robotami spamującymi itp.
+      -->
+      <form action="https://formsubmit.co/kofip11381@buzblox.com?subject=Podstawy programowania - zadanie L2_A" method="post" enctype="text/plain" accept-charset="utf-8">
+        <label for="name">Imi&eogon;:</label><br>
+        <input type="text" id="name" name="Imi&eogon;" style="width: 250px;"><br><br>
+
+        <label for="year">Rok studi&oacute;w:</label><br>
+        <input type="text" id="year" name="Rok studi&oacute;w" style="width: 250px;"><br><br>
+
+        <label for="semester">Semestr studi&oacute;w:</label><br>
+        <input type="text" id="semester" name="Semestr studi&oacute;w" style="width: 250px;"><br><br>
+
+        <label for="language">Ulubiony j&eogon;zyk programowania:</label><br>
+        <select name="Ulubiony j&eogon;zyk programowania" id="language" style="width: 250px;">
+          <option value="C#">C#</option>
+          <option value="C / C++">C / C++</option>
+          <option value="F#">F#</option>
+          <option value="Go">Go</option>
+          <option value="Haskell">Haskell</option>
+          <option value="Java">Java</option>
+          <option value="JavaScript / TypeScript">JavaScript / TypeScript</option>
+          <option value="Kotlin">Kotlin</option>
+          <option value="Ocaml">Ocaml</option>
+          <option value="Pascal">Pascal</option>
+          <option value="PHP">PHP</option>
+          <option value="Python">Python</option>
+          <option value="R">R</option>
+          <option value="Ruby">Ruby</option>
+          <option value="Inny">Inny</option>
+        </select>
+          <input type="text" id="Inny" name="Ulubiony j&eogon;zyk programowania (inny)" style="display:none; width: 250px;" placeholder="Jaki?"><br><br>
+
+        <label>U&zdot;ywany system operacyjny:</label><br>
+          <input type="checkbox" id="Android" name="U&zdot;ywany system operacyjny" value="Android">
+          <label for="Android">Android</label><br>
+          <input type="checkbox" id="ChromeOS" name="U&zdot;ywany system operacyjny" value="ChromeOS">
+          <label for="ChromeOS">ChromeOS</label><br>
+          <input type="checkbox" id="iOS" name="U&zdot;ywany system operacyjny" value="iOS">
+          <label for="iOS">iOS</label><br>
+          <input type="checkbox" id="Linux" name="U&zdot;ywany system operacyjny" value="Linux">
+          <label for="Linux">Linux</label><br>
+          <input type="checkbox" id="macOS" name="U&zdot;ywany system operacyjny" value="macOS">
+          <label for="macOS">macOS</label><br>
+          <input type="checkbox" id="Windows" name="U&zdot;ywany system operacyjny" value="Windows">
+          <label for="Windows">Windows</label><br><br>
+
+        <label for="browser">Ulubiona przegl&aogon;darka internetowa:</label><br>
+        <select id="browser" name="Ulubiona przegl&aogon;darka internetowa" style="width: 250px;">
+          <option value="Arc Browser">Arc Browser</option>
+          <option value="Brave">Brave</option>
+          <option value="Chromium">Chromium</option>
+          <option value="Dolphin Browser">Dolphin Browser</option>
+          <option value="Firefox">Firefox</option>
+          <option value="Google Chrome">Google Chrome</option>
+          <option value="Internet Explorer">Internet Explorer</option>
+          <option value="Maxthon">Maxthon</option>
+          <option value="Microsoft Edge">Microsoft Edge</option>
+          <option value="Opera">Opera</option>
+          <option value="Puffin">Puffin</option>
+          <option value="Safari">Safari</option>
+          <option value="UC Browser">UC Browser</option>
+          <option value="Vivaldi">Vivaldi</option>
+          <option value="Inna">Inna</option>
+        </select>
+          <input type="text" id="Inna" name="Ulubiona przegl&aogon;darka internetowa (inna)" style="display:none; width: 250px;" placeholder="Jaka?"><br><br>
+
+        <label for="hobby">Twoje zainteresowania:</label><br>
+        <textarea id="hobby" name="Twoje zainteresowania" style="height: 100px; width: 250px;"></textarea><br><br>
+      
+        <button type="submit"><b><u>P</u>rze&sacute;lij dane formularza</b></button><br><br>
+        <button type="reset"><b><u>W</u>yczy&sacute;&cacute; formularz</b></button>
+      </form>
+    </fieldset>
+  </div>
+</body>
+</html>
